@@ -27,3 +27,19 @@ Note
 consecutive strings : follow one after another without an interruption
 
 #>
+
+function LongestConsec([string[]] $strarr, [int]$k) 
+{
+    for ( $i=0; $i -lt $strarr.Count; $i++ ) {
+        $newStr = $strarr[$i .. ($i + $k - 1)] -join ''
+        if ( $newStr.length -gt $largest.length ) {         
+            $largest = $newStr
+        }
+    }
+    return $largest
+}
+
+
+$str = ("zone", "abigail", "theta", "form", "libe", "zas")
+#$str = ("ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh")
+LongestConsec $str 3
